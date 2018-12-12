@@ -1,0 +1,121 @@
+---
+title: "results"
+author: "GMA"
+date: "12 de diciembre de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Suicidal populations: an approach to ecological-level correlates of suicide rates in the United States
+
+Suicide, a global public health concern, is the second leading cause of death among the youth worldwide. Despite the related scientific production, suicide stands out as the only, among the 10 leading causes of death in the United States, with an increasing incidence rate in the last decade. 
+
+Most research focuses on suicide prevention as a clinical goal, and a number of prediction algorithms including individual-level social, cultural, clinical and biochemical correlates have been developed within the last decades. However, we consider that suicide needs to be studied and assessed from a multilevel perspective. Since Durkheim’s sociologic investigations, it is accepted that the causes of suicide not only act at the individual level, but also at overarching, ecological levels of causation. A number of current examples point in this direction: in the U.S., suicide in rural areas doubles the rate in urban ones; in London, socially deprived neighborhoods associate the higher incidence rates; across Europe, some countries exhibit 5 times more suicide rate. 
+
+Although modern epidemiology is mainly concerned with causes and effects at the individual level, there is growing interest on depicting how population-level determinants interact with known individual-level risk factors in what has been called eco-epidemiologic models. In our opinion, information on ecological-level determinants of suicide rates is needed to develop evidence-based multilevel frameworks for research and prevention.
+
+```{r}
+library(tidyverse)
+```
+
+First, we will plot suicide rates per state as of year 2016. 
+
+```{r}
+data_base =
+  tibble(
+  list = list.files("data", full.names = TRUE),
+  map(list, read_csv)
+  ) %>% 
+  unnest() %>% 
+  separate(list, into = c("state", "rate", "deaths", "url"), sep = "_") %>%
+  select(state, rate, deaths, url)
+```
+
+```{r}
+suic_data = read_csv(file = "./data/SUICIDE2016.csv")
+```
+
+```{r}
+plot = suic_data %>% 
+  ggplot(aes(x = STATE, y = RATE, color = RATE, label=STATE)) + 
+  geom_point() + 
+  geom_text(aes(label=STATE)) +
+    labs(
+    x = "State" ,
+    y = "2016 Rate"
+    ) +
+  theme(legend.position = "left")
+plot
+```
+
+Then, we will plot poverty rates per state, for the 2015-2017 period.
+
+```{r}
+  
+  poverty_data = read.csv(file = "./data/POVERTY1517.csv", sep =";")
+  poverty_data
+  
+```
+
+
+```{r}
+  
+poverty_plot = poverty_data %>% 
+  ggplot(aes(x = STATE, y = RATE, color = RATE, label=STATE)) + 
+  geom_point() + 
+  geom_text(aes(label=STATE)) +
+    labs(
+    x = "State" ,
+    y = "2015-17 Poverty Rate"
+    ) +
+  theme(legend.position = "left")
+poverty_plot
+  
+```
+
+
+```{r}
+plot2 <- ggplot(NULL, aes(RATE, STATE)) + 
+      geom_point(data = suic_data, color = "red") + # Red is Suicide
+      geom_point(data = poverty_data, color = "blue") # Blue is Poverty
+plot2
+```
+
+Finally, we will plot the suicide rate per state against the percentage of people living under the poverty level, in order to explore potential correlations between them.
+
+```{r}
+dffinal <- merge(suic_data, poverty_data, by = 'STATE')
+dffinal
+```
+
+
+```{r}
+ggplot(dffinal, aes(RATE.x, RATE.y), label = STATE) +
+  geom_point(color = '#0087E9', size = 2) +
+  geom_smooth(method='lm', se =  FALSE) +
+  geom_text(aes(RATE.x, RATE.y, label=STATE)) +
+    labs(
+    x = "Suicide rate" ,
+    y = "Poverty Rate"
+    ) +
+  theme_minimal() +
+  theme(axis.text = element_text(color = 'black', size = 12),
+        axis.line = element_line(color = 'black'))
+```
+
+The scatter plot does not look as if there was a linear relationship between both variables. However, we will end our inquiry by obtaining a correlation coefficient.
+
+```{r}
+install.packages("ggpubr")
+```
+
+```{r}
+library("ggpubr")
+```
+
+```{r}
+dffinal
+cor(dffinal$RATE.x, dffinal$RATE.y)
+```

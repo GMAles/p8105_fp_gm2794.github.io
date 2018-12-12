@@ -1,4 +1,4 @@
-name: "Yay internet!"
+name: "Ecological determinants of suicide in the US: the case of poverty"
 output_dir: "."
 navbar:
   title: "Ecological determinants of suicide in the US: the case of poverty"
@@ -7,9 +7,11 @@ navbar:
       href: about.html
     - text: "Data source"
       href: data.html
+    - text: "Results"
+      href: results.html
     - icon: fa-envelope fa-lg
-      href: mailto:<gm2794@cumc.columbia.edu>
+      href: mailto:gm2794@cumc.columbia.edu
     - icon: fa-github fa-lg
-      href: http://github.com/<YOUR_GH_NAME>/
+      href: http://github.com/p8105_fp_gm2794.github.io/
 output:
   html_document
