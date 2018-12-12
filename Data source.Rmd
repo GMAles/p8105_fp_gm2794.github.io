@@ -1,8 +1,5 @@
 ---
 title: "Data source"
-author: "GMA"
-date: "12 de diciembre de 2018"
-output: html_document
 ---
 
 # Our data come from:
