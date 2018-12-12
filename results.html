@@ -486,9 +486,10 @@ dffinal</code></pre>
 ##   later:
 ##        binary source needs_compilation
 ## lmtest 0.9-35 0.9-36              TRUE</code></pre>
+<pre><code>## Do you want to install from sources the package which needs compilation?</code></pre>
 <pre><code>## installing the source package &#39;lmtest&#39;</code></pre>
-<pre><code>## Warning in install.packages(&quot;lmtest&quot;, repos = &quot;http://cran.us.r-
-## project.org&quot;): installation of package &#39;lmtest&#39; had non-zero exit status</code></pre>
+<pre><code>## Warning in install.packages :
+##   installation of package &#39;lmtest&#39; had non-zero exit status</code></pre>
 <pre class="r"><code>ggplot(dffinal, aes(RATE.x, RATE.y), label = STATE) +
   geom_point(color = &#39;#0087E9&#39;, size = 2) +
   geom_smooth(method=&#39;lm&#39;, se =  FALSE) +
