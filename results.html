@@ -230,14 +230,15 @@ $(document).ready(function () {
 <p>Most research focuses on suicide prevention as a clinical goal, and a number of prediction algorithms including individual-level social, cultural, clinical and biochemical correlates have been developed within the last decades. However, we consider that suicide needs to be studied and assessed from a multilevel perspective. Since Durkheim’s sociologic investigations, it is accepted that the causes of suicide not only act at the individual level, but also at overarching, ecological levels of causation. A number of current examples point in this direction: in the U.S., suicide in rural areas doubles the rate in urban ones; in London, socially deprived neighborhoods associate the higher incidence rates; across Europe, some countries exhibit 5 times more suicide rate.</p>
 <p>Although modern epidemiology is mainly concerned with causes and effects at the individual level, there is growing interest on depicting how population-level determinants interact with known individual-level risk factors in what has been called eco-epidemiologic models. In our opinion, information on ecological-level determinants of suicide rates is needed to develop evidence-based multilevel frameworks for research and prevention.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ──────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
 ## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
 ## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
 ## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
 <p>First, we will plot suicide rates per state as of year 2016.</p>
 <pre class="r"><code>data_base =
   tibble(
@@ -479,6 +480,15 @@ dffinal</code></pre>
 ## 48         /nchs/pressroom/states/wisconsin/wisconsin.htm   10.5
 ## 49   /nchs/pressroom/states/westvirginia/westvirginia.htm   16.6
 ## 50             /nchs/pressroom/states/wyoming/wyoming.htm   11.0</code></pre>
+<pre class="r"><code>install.packages(&quot;lmtest&quot;, repos = &quot;http://cran.us.r-project.org&quot;)</code></pre>
+<pre><code>## 
+##   There is a binary version available but the source version is
+##   later:
+##        binary source needs_compilation
+## lmtest 0.9-35 0.9-36              TRUE</code></pre>
+<pre><code>## installing the source package &#39;lmtest&#39;</code></pre>
+<pre><code>## Warning in install.packages(&quot;lmtest&quot;, repos = &quot;http://cran.us.r-
+## project.org&quot;): installation of package &#39;lmtest&#39; had non-zero exit status</code></pre>
 <pre class="r"><code>ggplot(dffinal, aes(RATE.x, RATE.y), label = STATE) +
   geom_point(color = &#39;#0087E9&#39;, size = 2) +
   geom_smooth(method=&#39;lm&#39;, se =  FALSE) +
@@ -490,9 +500,9 @@ dffinal</code></pre>
   theme_minimal() +
   theme(axis.text = element_text(color = &#39;black&#39;, size = 12),
         axis.line = element_line(color = &#39;black&#39;))</code></pre>
-<p><img src="results_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="results_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>The scatter plot does not look as if there was a linear relationship between both variables. However, we will end our inquiry by obtaining a correlation coefficient.</p>
-<pre class="r"><code>install.packages(&quot;ggpubr&quot;)</code></pre>
+<pre class="r"><code>install.packages(&quot;ggpubr&quot;, repos = &quot;http://cran.us.r-project.org&quot;)</code></pre>
 <pre><code>## 
 ##   There is a binary version available but the source version is
 ##   later:

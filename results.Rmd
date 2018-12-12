@@ -8,6 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 ## Suicidal populations: an approach to ecological-level correlates of suicide rates in the United States
 
 Suicide, a global public health concern, is the second leading cause of death among the youth worldwide. Despite the related scientific production, suicide stands out as the only, among the 10 leading causes of death in the United States, with an increasing incidence rate in the last decade. 
@@ -112,7 +113,7 @@ ggplot(dffinal, aes(RATE.x, RATE.y), label = STATE) +
 The scatter plot does not look as if there was a linear relationship between both variables. However, we will end our inquiry by obtaining a correlation coefficient.
 
 ```{r}
-install.packages("ggpubr")
+install.packages("ggpubr", repos = "http://cran.us.r-project.org")
 ```
 
 ```{r}
