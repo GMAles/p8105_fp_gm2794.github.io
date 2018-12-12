@@ -1,7 +1,9 @@
 ---
-title: "Holy cow!"
+title: "Ecological determinants of suicide in the US: the case of poverty"
 ---
 
-### I have a webpage!
+# "Ecological determinants of suicide in the US: the case of poverty"
 
-And I can put all kinds of stuff on it!
+Suicide, a global public health concern, is the second leading cause of death among the youth worldwide. Despite the related scientific production, suicide stands out as the only, among the 10 leading causes of death in the United States, with an increasing incidence rate in the last decade. 
+
+The aim of this project is to study whether poverty correlated to suicide rates at the state level.

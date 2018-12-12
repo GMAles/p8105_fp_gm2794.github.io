@@ -2,8 +2,10 @@
 title: "About"
 ---
 
-### About this site
+# Background
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+Suicide, a global public health concern, is the second leading cause of death among the youth worldwide. Despite the related scientific production, suicide stands out as the only, among the 10 leading causes of death in the United States, with an increasing incidence rate in the last decade. 
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+Most research focuses on suicide prevention as a clinical goal, and a number of prediction algorithms including individual-level social, cultural, clinical and biochemical correlates have been developed within the last decades. However, we consider that suicide needs to be studied and assessed from a multilevel perspective. Since Durkheim’s sociologic investigations, it is accepted that the causes of suicide not only act at the individual level, but also at overarching, ecological levels of causation. A number of current examples point in this direction: in the U.S., suicide in rural areas doubles the rate in urban ones; in London, socially deprived neighborhoods associate the higher incidence rates; across Europe, some countries exhibit 5 times more suicide rate. 
+
+Although modern epidemiology is mainly concerned with causes and effects at the individual level, there is growing interest on depicting how population-level determinants interact with known individual-level risk factors in what has been called eco-epidemiologic models. In our opinion, information on ecological-level determinants of suicide rates is needed to develop evidence-based multilevel frameworks for research and prevention.

@@ -1,0 +1,16 @@
+---
+title: "Data source"
+author: "GMA"
+date: "12 de diciembre de 2018"
+output: html_document
+---
+
+# Our data come from:
+
+## SUICIDE RATES:
+
+https://www.cdc.gov/nchs/pressroom/sosmap/suicide-mortality/suicide.htm
+
+## POVERTY RATES:
+
+https://www.census.gov/library/publications/2018/demo/p60-263.html

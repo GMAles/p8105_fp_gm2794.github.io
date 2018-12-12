@@ -1,12 +1,14 @@
 name: "Yay internet!"
 output_dir: "."
 navbar:
-  title: "Home"
+  title: "Ecological determinants of suicide in the US: the case of poverty"
   right:
     - text: "About"
       href: about.html
+    - text: "Data source"
+      href: data.html
     - icon: fa-envelope fa-lg
-      href: mailto:<you@youremail.com>
+      href: mailto:<gm2794@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/<YOUR_GH_NAME>/
 output:
