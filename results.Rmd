@@ -18,6 +18,7 @@ Although modern epidemiology is mainly concerned with causes and effects at the 
 
 ```{r}
 library(tidyverse)
+library(ggplot2)
 ```
 
 First, we will plot suicide rates per state as of year 2016. 
@@ -90,6 +91,9 @@ dffinal <- merge(suic_data, poverty_data, by = 'STATE')
 dffinal
 ```
 
+```{r}
+install.packages("lmtest", repos = "http://cran.us.r-project.org")
+```
 
 ```{r}
 ggplot(dffinal, aes(RATE.x, RATE.y), label = STATE) +
